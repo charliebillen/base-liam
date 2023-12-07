@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 static const char map[] = "Liam";
@@ -10,9 +12,17 @@ void encode(const char c, char *enc)
     enc[3] = map[c >> 0 & 3];
 }
 
-int charIdx(const char c)
+static inline int charIdx(const char c)
 {
-    return strchr(map, c) - map;
+    char *p = strchr(map, c);
+
+    if (p == NULL)
+    {
+        fprintf(stderr, "Invalid character: %c\n", c);
+        exit(1);
+    }
+
+    return p - map;
 }
 
 char decode(const char *c)

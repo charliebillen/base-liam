@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "encoder.h"
+
 static const char map[] = "Liam";
 
 void encode(const char c, char *enc)
@@ -19,7 +21,7 @@ static inline int charIdx(const char c)
     if (p == NULL)
     {
         fprintf(stderr, "Invalid character: %c\n", c);
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     return p - map;
@@ -27,6 +29,13 @@ static inline int charIdx(const char c)
 
 char decode(const char *c)
 {
+    char len = strlen(c);
+    if (len != LIAM_CHAR)
+    {
+        fprintf(stderr, "Invalid input: %s Length: %u\n", c, len);
+        exit(EXIT_FAILURE);
+    }
+
     return charIdx(c[0]) << 6 | charIdx(c[1]) << 4 | charIdx(c[2]) << 2 |
            charIdx(c[3]);
 }

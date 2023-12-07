@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "encoder.h"
@@ -5,12 +6,12 @@
 int main()
 {
     char c;
-    while (read(STDIN_FILENO, &c, 1))
+    while (read(STDIN_FILENO, &c, ASCII_CHAR))
     {
-        char enc[4];
+        char enc[LIAM_CHAR];
         encode(c, enc);
-        write(STDOUT_FILENO, enc, 4);
+        write(STDOUT_FILENO, enc, LIAM_CHAR);
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -1,3 +1,3 @@
-void encode(char c, char *enc);
+void encode(const char c, char *enc);
 
-char decode(char *enc);
+char decode(const char *enc);

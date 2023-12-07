@@ -2,61 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "test.h"
+
 #include "../src/encoder.h"
 
 /*
     'A' == 65 == 01000001
 
     01000001 == 01 00 00 01 == i L L i
+
+    'A' == "iLLI"
 */
-#define ASCII 'A'
-#define LIAM "iLLi"
 
-int test_encode()
+const char raw = 'A';
+const char *encoded = "iLLi";
+
+void test_encode()
 {
-    char enc[5] = {'\0'};
-    encode(ASCII, enc);
+    char act[5] = {'\0'}; // string literals are null-terminated
+    encode(raw, act);
 
-    if (strcmp(enc, LIAM) != 0)
-    {
-        fprintf(stderr, "test_encode failed\n");
-        fprintf(stderr, "\tgot '%s'\n", enc);
-        fprintf(stderr, "\texpected '%s'\n", LIAM);
-        return -1;
-    }
-
-    printf("test_encode passed\n");
-    return 1;
+    TEST("test_encode", STR_EQ(act, encoded));
 }
 
-int test_decode()
+void test_decode()
 {
-    char enc[] = LIAM;
-    char c = decode(enc);
+    char act = decode(encoded);
 
-    if (c != ASCII)
-    {
-        fprintf(stderr, "test_decode failed\n");
-        fprintf(stderr, "\tgot '%c'\n", c);
-        fprintf(stderr, "\texpected '%c'\n", ASCII);
-        return -1;
-    }
-
-    printf("test_decode passed\n");
-    return 1;
+    TEST("test_decode", EQ(act, raw));
 }
 
 int main()
 {
-    if (!test_encode())
-    {
-        return -1;
-    }
-
-    if (!test_decode())
-    {
-        return -1;
-    }
+    test_encode();
+    test_decode();
 
     return 0;
 }

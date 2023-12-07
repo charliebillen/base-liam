@@ -29,10 +29,11 @@ static inline int charIdx(const char c)
 
 char decode(const char *c)
 {
-    char len = strlen(c);
+    size_t len = strlen(c);
+
     if (len != LIAM_CHAR)
     {
-        fprintf(stderr, "Invalid input: %s Length: %u\n", c, len);
+        fprintf(stderr, "Invalid input: %s Length: %zu\n", c, len);
         exit(EXIT_FAILURE);
     }
 

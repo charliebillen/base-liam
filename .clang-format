@@ -1,8 +1,8 @@
-BasedOnStyle: Microsoft
-IndentWidth: 4
-ColumnLimit: 79
-UseTabs: Never
 AlignAfterOpenBracket: DontAlign
-ContinuationIndentWidth: 4
+BasedOnStyle: Microsoft
 BinPackArguments: false
 BinPackParameters: false
+ColumnLimit: 79
+ContinuationIndentWidth: 4
+IndentWidth: 4
+UseTab: Never

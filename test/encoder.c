@@ -11,7 +11,7 @@
 
     01000001 == 01 00 00 01 == i L L i
 
-    'A' == "iLLI"
+    'A' == "iLLi"
 */
 
 const char raw = 'A';
@@ -20,6 +20,7 @@ const char *encoded = "iLLi";
 void test_encode()
 {
     char act[5] = {'\0'}; // string literals are null-terminated
+
     encode(raw, act);
 
     TEST("test_encode", STR_EQ(act, encoded));

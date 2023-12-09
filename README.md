@@ -1,4 +1,4 @@
-[![Makefile CI](https://github.com/charliebillen/base-liam/actions/workflows/makefile.yml/badge.svg)](https://github.com/charliebillen/base-liam/actions/workflows/makefile.yml)
+[![CI](https://github.com/charliebillen/base-liam/actions/workflows/cmake-single-platform.yml/badge.svg)](https://github.com/charliebillen/base-liam/actions/workflows/cmake-single-platform.yml)
 
 # BaseLiam
 

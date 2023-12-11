@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "test.h"
 
 #include "../src/encoder.h"
@@ -9,7 +5,12 @@
 /*
     'A' == 65 == 01000001
 
-    01000001 == 01 00 00 01 == i L L i
+    01000001 == 01 00 00 01 == 1 0 0 1
+
+    "Liam"[1] == 'i'
+    "Liam"[0] == 'L'
+    "Liam"[0] == 'L'
+    "Liam"[1] == 'i'
 
     'A' == "iLLi"
 */
@@ -19,7 +20,7 @@ const char *encoded = "iLLi";
 
 void test_encode()
 {
-    char act[5] = {'\0'}; // string literals are null-terminated
+    char act[5] = {'\0'};
 
     encode(raw, act);
 

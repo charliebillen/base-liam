@@ -1,3 +1,6 @@
+#ifndef __ENCODER_H
+#define __ENCODER_H
+
 #define ASCII_CHAR 1
 
 #define LIAM_CHAR 4
@@ -19,3 +22,5 @@ void encode(const char c, char *enc);
  *  @returns the original character value
  */
 char decode(const char *enc);
+
+#endif // __ENCODER_H
